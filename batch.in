@@ -1,0 +1,19 @@
+#!/bin/bash
+#BATCH -J MPPAMC
+#SBATCH --export=NONE
+#SBATCH --mail-type=ALL
+#SBATCH --get-user-env=L
+#SBATCH --mem=5000M
+#SBATCH -p long
+#SBATCH -J 2d-fractual-ising_128
+#SBATCH -o INFO.%j
+#SBATCH -N 30
+#SBATCH -n 30
+#SBATCH --ntasks-per-node=1
+#SBATCH -t 7:00:00
+#SBATCH --mail-user=fangchao118@tamu.com
+
+
+ml purge
+ml impi/5.1.3.181-iccifort-2016.3.210-GCC-5.4.0-2.26
+tamulauncher-classic  -n 30 commands.in
